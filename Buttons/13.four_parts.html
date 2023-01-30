@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a{
+    padding: 25px 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #f6b93b;
+    border: 3px solid #f6b93b;
+    letter-spacing: 3px;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+a::before,
+a::after,
+span::before,
+span::after{
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: #f6b93b;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+a::before{
+    top: 0;
+    left: -25%;
+}
+
+a::after{
+    top: -100%;
+    left: 25%;
+}
+
+a span::before {
+    top: 100%;
+    right: 25%;
+}
+
+a span::after {
+    top: 0;
+    right: -25%;
+}
+
+a:hover span::before{
+    top: 0;
+    right: 25%;
+}
+
+a:hover span::after{
+    top: 0;
+    right: 0;
+}
+
+a:hover::before{
+    top: 0;
+    left: 0; 
+}
+
+a:hover::after{
+    top: 0;
+    left: 25%;
+}
+
+a:hover{
+    color: #222;
+} 
+    </style>
+</head>
+<body>
+    <a href="#"><Span>Hover Me</Span></a>
+</body>
+</html>

@@ -1,0 +1,81 @@
+@import '../Import';
+
+html,body{ width: 100%; height: 100%; }
+ 
+#viewport{
+	width: 100%;
+	height:100%;
+	@include perspective(500px);
+	@include perspectiveOrigin( 50% 50% );
+}
+
+html.no-preserve3d #cube{
+	overflow: hidden;
+	@include transform( none );
+}
+
+html.no-preserve3d #cube > div{
+	position: relative;
+	@include transform( none );
+}
+
+#cube{ 
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left:-200px;
+	margin-top: -200px;
+	@include transformStyle();
+	@include transform( translateZ(-200px) rotateY(0deg) );
+	@include transition( transform .4s );
+	@include transformOrigin( 50% 50% 0px );
+}
+
+#cube > div{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+}
+
+#cube.right{
+	@include transform( translateZ(-200px) rotateY(-90deg) )
+}
+
+#cube.back{
+	@include transform( translateZ(-200px) rotateY(-180deg) )
+}
+
+#cube.left{
+	@include transform( translateZ(-200px) rotateY(-270deg) )
+}
+
+#cube.top{
+	@include transform( translateZ(-200px) rotateY(-270deg) rotateZ(-90deg) )
+}
+
+#front{
+	@include transform( translateZ(200px) );
+}
+
+#back{
+	@include transform( translateZ(-200px) rotateY(180deg) );
+}
+
+#left{
+	@include transform( translateX(-200px) rotateY(-90deg) );
+}
+
+#right{
+	@include transform( translateX(200px) rotateY(90deg) );
+}
+
+#top{
+	@include transform( translateY(-200px) rotateX(90deg) rotateZ(90deg) );
+}
+
+#bottom{
+	@include transform( translateY(200px) rotateX(90deg) );
+}

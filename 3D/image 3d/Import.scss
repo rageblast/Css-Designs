@@ -1,0 +1,89 @@
+// 3D mixins
+
+@mixin perspective($val){
+	-webkit-perspective: $val;
+	perspective: $val;
+}
+
+@mixin perspectiveOrigin($val){
+	-webkit-perspective-origin: $val;
+	perspective-origin: $val;
+}
+
+@mixin transformStyle(){
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+@mixin transform($val){
+	-webkit-transform:$val;
+	-moz-transform:$val;
+	-ms-transform:$val;
+	transform:$val;
+}
+
+@mixin transformOrigin($val){
+	-webkit-transform-origin: $val;
+	transform-origin: $val;
+}
+
+// Animation Mixins
+
+@mixin keyframes($name) {
+  @-webkit-keyframes $name {
+    @content; 
+  }
+  @-moz-keyframes $name {
+    @content;
+  }
+  @-ms-keyframes $name {
+    @content;
+  }
+  @keyframes $name {
+    @content;
+  }
+}
+
+@mixin animation($val){
+	-webkit-animation:$val;
+	-moz-animation:$val;
+	animation:$val;
+}
+
+@mixin transition($val){
+	-webkit-transition: $val;
+	-moz-transition: $val;
+	-o-transition: $val;
+	transition: $val;
+}
+
+//Other Mixins for general styling
+
+@mixin boxShadow($val){
+	-webkit-box-shadow: $val;
+	-moz-box-shadow: $val;
+	box-shadow: $val;
+}
+
+@mixin borderRadius($val) {
+	-webkit-border-radius: $val;
+	-moz-border-radius: $val;
+	border-radius: $val;
+}
+
+@mixin boxSizing{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+//Basic styling
+
+body{
+	margin: 0;
+	padding: 0;
+	color: #777;
+	font-size: 16px;
+	font-family: "Helvetica", arial;
+	-webkit-font-smoothing: antialiased;
+}

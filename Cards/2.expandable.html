@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        .card {
+            position: relative;
+            width: 300px;
+            height: 260px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+            padding: 20px 40px;
+        }
+
+        .imgbox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-60px);
+            z-index: 1;
+        }
+
+        img{
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            height: 420px;
+        }
+
+        .content{
+            padding: 10px 20px;
+            text-align: center;
+            color: #111;
+            transition: 0.3s;
+            transform: translateY(-500px);
+            opacity: 0;
+            display: none;
+        }
+
+        .content p {
+            font-size: 14px;
+        }
+
+        .card:hover .content{
+            opacity: 1;
+            display: block;
+            transform: translateY(-200px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="imgbox">
+              <img src="../images/2.jpg" alt="">
+        </div>
+        <div class="content">
+        <h2>card hover</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus pariatur ducimus officia sapiente quaerat ipsum consectetur</p>
+        </div>
+    </div>
+</body>
+</html>

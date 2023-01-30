@@ -1,0 +1,140 @@
+@import '../Import';
+
+///////////////////// General Styling /////////////////////
+
+  html{
+  	height: 100%;
+  }
+
+  body{
+    height: 100%;
+    width: 100%;
+    background:#f0e9dd;
+    display: table;
+  }
+
+  #viewport{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  img{
+    width: 21%;
+    max-width: 300px;
+    margin: 10px;
+    @include boxShadow(1px 1px 4px rgba(0,0,0,.8));
+  }
+
+  @media screen and (max-width:580px){
+    img{
+       width: 44.5%;
+    }
+  }
+
+///////////////////// 3D Environment /////////////////////
+
+  .preserve3d #viewport{
+    text-align: left;
+    @include perspective(500px);
+  }
+
+  .preserve3d #toptier,.preserve3d #bottomtier{
+    width: 300px;
+    height: 169px;
+    background: url('images/parent.png');
+    @include transformStyle();
+  }
+
+  .preserve3d img{
+    position: absolute;
+    width: 300px;
+    margin: 0;
+    opacity: .7;
+    @include borderRadius(4px);
+    @include boxShadow(none);
+  }
+
+///////////////////// Main Object /////////////////////
+
+  .preserve3d #main{
+    width: 300px;
+    margin: 200px auto 0 auto;
+    background: rgba(235,100,200,.3);
+    @include transform( rotateZ(30deg) rotateY(0deg) );
+    @include transformStyle();
+    @include transformOrigin( 50% 50% -280px );
+  }
+
+///////////////////// Bottomtier Object /////////////////////
+
+  .preserve3d #bottomtier{
+    margin: 0 auto;
+    @include transform( translateZ(-280px) rotateY(0deg)  );
+  }
+
+  .preserve3d #pic5{
+    @include transform( translateZ(280px) );
+  }
+
+  .preserve3d #pic6{
+    @include transform( translateX(280px) rotateY(90deg) );
+  }
+
+  .preserve3d #pic7{
+    @include transform( translateZ(-280px) rotateY(180deg) );
+  }
+
+  .preserve3d #pic8{
+    @include transform( translateX(-280px) rotateY(-90deg) );
+  }
+
+///////////////////// Toptier Object /////////////////////
+
+  .preserve3d #toptier{
+    position: absolute;
+    margin:0 auto 40px auto;
+    @include transform( translateY(-250px) rotateY(0deg) );
+  }
+
+  .preserve3d #pic1{
+    @include transform( translateZ(160px) );
+  }
+
+  .preserve3d #pic2{
+    @include transform( translateX(160px) rotateY(90deg) );
+  }
+
+  .preserve3d #pic3{
+    @include transform( translateZ(-160px) rotateY(180deg) );
+  }
+
+  .preserve3d #pic4{
+    @include transform( translateX(-160px) rotateY(-90deg) );
+  }
+
+///////////////////// Animation /////////////////////
+
+  @include keyframes( rotateBottom ) {
+    100%{ @include transform( translateZ(-280px) rotateY(360deg) ) }
+  }
+
+  .preserve3d #bottomtier{
+    @include animation( rotateBottom 4s infinite linear );
+  }
+
+  @include keyframes( rotateTop ) {
+    100%{ @include transform( translateY(-250px) rotateY(360deg) ) }
+  }
+
+  .preserve3d #toptier{
+    @include animation( rotateTop 4s infinite linear );
+  }
+
+  @include keyframes( rotateMain ) {
+    100%{ @include transform( rotateZ(30deg) rotateY(360deg) ) }
+  }
+
+  .preserve3d #main{
+    @include animation( rotateMain 2s infinite );
+  }
